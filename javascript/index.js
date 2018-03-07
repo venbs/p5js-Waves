@@ -21,4 +21,4 @@ function iconsPlay(paramsPlay){
     icons[b].play();
 }
 let a;
-
+let b;
