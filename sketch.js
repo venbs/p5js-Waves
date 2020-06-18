@@ -7,7 +7,6 @@ let mic;
 let mic_level;
 let mic_smooth = 0.2;
 let smooth_dir;
-console.log(mic_smooth);
 
 function setup(){
     Canvas0 = createCanvas(800, 400);
