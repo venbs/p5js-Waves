@@ -1,4 +1,4 @@
-const V_COUNT = 5; //波的数量
+const V_COUNT = 4; //波的数量
 const V_COL = 210; //色相，从0-360
 const V_AMP = 100; //波的振幅
 const V_LENGTH = 2; //波长，数字越小波长越长
@@ -9,7 +9,7 @@ let mic_smooth = 0.2;
 let smooth_dir;
 
 function setup(){
-    Canvas0 = createCanvas(800, 400);
+    Canvas0 = createCanvas(windowWidth, windowHeight);
     Canvas0.mousePressed(userStartAudio());
     colorMode(HSB);
     frameRate(FRAMERATE);
@@ -25,7 +25,7 @@ function draw(){
     background(0,0.2);
     mic_level = map(mic.getLevel(),0,0.5,0.08,1,true);
     smooth_dir = mic_level - mic_smooth;
-    mic_smooth += smooth_dir * 0.1;
+    mic_smooth += smooth_dir * 0.2;
     wave0.running(mic_smooth);
 }
 class Waves {
@@ -56,7 +56,7 @@ class Wave {
         this.amplitude = amplitude || 20;
         this.y = 200;
         this.x = 100;
-        this.width = 600 ;
+        this.width = 400 ;
         this.sampling = 50;
         this.wave_speed = 1;
         this.timeOffset = 0;
