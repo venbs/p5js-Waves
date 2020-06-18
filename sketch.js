@@ -11,7 +11,7 @@ let smooth_dir;
 function setup(){
     Canvas0 = createCanvas(800, 400);
     Canvas0.mousePressed(userStartAudio());
-    colorMode(HSB)
+    colorMode(HSB);
     frameRate(FRAMERATE);
     mic = new p5.AudioIn();
     mic.start();
