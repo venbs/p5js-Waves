@@ -54,9 +54,9 @@ class Wave {
         this.wawe_height = [];
         this.point_style = [];
         this.amplitude = amplitude || 20;
-        this.y = 200;
-        this.x = 100;
-        this.width = 400 ;
+        this.y = 600;
+        this.x = 50;
+        this.width = 900 ;
         this.sampling = 50;
         this.wave_speed = 1;
         this.timeOffset = 0;
