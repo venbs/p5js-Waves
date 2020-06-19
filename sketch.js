@@ -23,9 +23,9 @@ function draw(){
     drawingContext.shadowBlur = 0;
     drawingContext.shadowColor = null;
     background(0,0.2);
-    mic_level = map(mic.getLevel(),0,0.5,0.08,1,true);
+    mic_level = map(mic.getLevel(),0,1,0,1,true);
     smooth_dir = mic_level - mic_smooth;
-    mic_smooth += smooth_dir * 0.2;
+    mic_smooth += smooth_dir * 0.1;
     wave0.running(mic_smooth);
 }
 class Waves {
