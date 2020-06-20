@@ -8,6 +8,7 @@ let mic_level;
 let mic_smooth = 0.2;
 let smooth_dir;
 let ghost = 2
+let point_mode = false;
 
 function setup(){
     Canvas0 = createCanvas(980, 980);
@@ -98,8 +99,13 @@ class Wave {
 		drawingContext.shadowBlur = 40;
         drawingContext.shadowColor = color(this.color,100,100,0.3);
         beginShape();
-        for(let i = 0; i < this.sampling; i++){
-            curveVertex((i * (this.width/ this.sampling)) + this.x, this.wawe_height[i]);
+        if(point_mode == false){
+            for(let i = 0; i < this.sampling; i++){
+                curveVertex((i * (this.width/ this.sampling)) + this.x, this.wawe_height[i]);
+        }}else{
+            for(let i = 0; i < this.sampling; i++){
+                point((i * (this.width/ this.sampling)) + this.x, this.wawe_height[i]);
+        }
         }
         endShape();
         blendMode(BLEND)
@@ -116,3 +122,14 @@ let slider_ghost = document.getElementById("slider_ghost");
 function changeGhost(){
     ghost =  slider_ghost.value;
 }
+function mousePressed() {
+    
+    if (point_mode == false) {
+        point_mode = true;
+        
+    } else {
+        point_mode = false;
+    }
+    console.log(point_mode);
+}
+    
