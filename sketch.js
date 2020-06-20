@@ -1,12 +1,13 @@
-const V_COUNT = 4; //波的数量
-const V_COL = 210; //色相，从0-360
-const V_AMP = 100; //波的振幅
+let V_COUNT = 4; //波的数量
+let V_COL = 210; //色相，从0-360
+const V_AMP = 160; //波的振幅
 const V_LENGTH = 2; //波长，数字越小波长越长
 const FRAMERATE = 60;
 let mic;
 let mic_level;
 let mic_smooth = 0.2;
 let smooth_dir;
+let ghost = 2
 
 function setup(){
     Canvas0 = createCanvas(windowWidth, windowHeight);
@@ -22,8 +23,8 @@ function draw(){
     drawingContext.shadowOffsetY = 0;
     drawingContext.shadowBlur = 0;
     drawingContext.shadowColor = null;
-    background(0,0.2);
-    mic_level = map(mic.getLevel(),0,1,0,1,true);
+    background(0,ghost/10);
+    mic_level = map(mic.getLevel(),0,1,0.1,1,true);
     smooth_dir = mic_level - mic_smooth;
     mic_smooth += smooth_dir * 0.1;
     wave0.running(mic_smooth);
@@ -50,14 +51,14 @@ class Waves {
 
 class Wave {
     constructor(color,amplitude,waveLength,Angle,alpha){
-        this.wawe_weight = 3;
+        this.wawe_weight = 6;
         this.wawe_height = [];
         this.point_style = [];
         this.amplitude = amplitude || 20;
         this.y = 600;
         this.x = 50;
         this.width = 900 ;
-        this.sampling = 50;
+        this.sampling = 32;
         this.wave_speed = 1;
         this.timeOffset = 0;
         this.timeOffsetRate = TWO_PI / FRAMERATE * this.wave_speed;
@@ -103,4 +104,15 @@ class Wave {
         endShape();
         blendMode(BLEND)
     }
+}
+
+let slider_count = document.getElementById("slider_count");
+function changeCount(){
+    V_COUNT =  slider_count.value;
+    setup();
+}
+
+let slider_ghost = document.getElementById("slider_ghost");
+function changeGhost(){
+    ghost =  slider_ghost.value;
 }
