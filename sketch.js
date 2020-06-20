@@ -10,7 +10,7 @@ let smooth_dir;
 let ghost = 2
 
 function setup(){
-    Canvas0 = createCanvas(screen.width, screen.height);
+    Canvas0 = createCanvas(980, 980);
     Canvas0.mousePressed(userStartAudio());
     colorMode(HSB);
     frameRate(FRAMERATE);
