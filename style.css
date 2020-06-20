@@ -5,7 +5,7 @@ body{
     background-color: black;
 }
 .controlbox {
-  height: 800pt;
+  height: 600pt;
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -21,7 +21,7 @@ body{
   margin: 40pt auto;
 }
 #wave_ghost{
-  margin: 160pt auto;
+  margin: 100pt auto;
 }
 
 #slider_count {
