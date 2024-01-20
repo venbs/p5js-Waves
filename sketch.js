@@ -1,6 +1,6 @@
 let V_COUNT = 4; //波的数量
 let V_COL = 210; //色相，从0-360
-const V_AMP = 160; //波的振幅
+const V_AMP = 300; //波的振幅
 const V_LENGTH = 2; //波长，数字越小波长越长
 const FRAMERATE = 60;
 let mic;
